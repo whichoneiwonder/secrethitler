@@ -3,3 +3,4 @@ node_modules/
 bugs/
 
 settings.json
+out/**
