@@ -92,7 +92,7 @@ export function enactFromTracker() {
   let roomId = Session.get("roomId");
   let room = Rooms.findOne(roomId);
   if (room.electiontracker === 3) {
-    let update = { electiontracker: 0 }
+    let update = { electiontracker: 0, ruledout: [] }
     if (room.trackerenact.topcard == "liberal") {
       update.liberal = room.liberal + 1;
     } else if (room.trackerenact.topcard == "fascist") {

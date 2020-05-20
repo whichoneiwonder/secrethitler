@@ -146,7 +146,9 @@ Template.game.helpers({
       return "president-candidate";
     } else if (room.players[room.currentPresident].playerId == currentPlayerId && room.assassination) {
       return "on-the-chopping-board";
-    } else if (room.players[room.currentPresident].playerId == currentPlayerId && room.currentChancellor == -1 && !_.contains(room.ruledout, playerId)) {
+    } else if (room.players[room.currentPresident].playerId == currentPlayerId
+          && room.currentChancellor == -1
+          && !_.contains(room.ruledout, playerId)) {
       return "chancellor-candidate";
     } else if (room.currentChancellor > -1 && room.players[room.currentChancellor].playerId == playerId) {
       return "chancellor";
@@ -157,11 +159,14 @@ Template.game.helpers({
     let room = Rooms.findOne(roomId);
     let numOfPlayers = room.players.length;
     if (numOfPlayers < 5) {
-      return [ PRESIDENTIALPOWERS[1], PRESIDENTIALPOWERS[2], PRESIDENTIALPOWERS[3], PRESIDENTIALPOWERS[4], PRESIDENTIALPOWERS[5], PRESIDENTIALPOWERS[6] ];
+      return [ PRESIDENTIALPOWERS[1], PRESIDENTIALPOWERS[2], PRESIDENTIALPOWERS[3],
+               PRESIDENTIALPOWERS[4], PRESIDENTIALPOWERS[5], PRESIDENTIALPOWERS[6] ];
     } else if (numOfPlayers < 7) { // 5 and 6
-      return [ PRESIDENTIALPOWERS[2], PRESIDENTIALPOWERS[4], PRESIDENTIALPOWERS[5], PRESIDENTIALPOWERS[6] ];
+      return [ PRESIDENTIALPOWERS[2], PRESIDENTIALPOWERS[4], PRESIDENTIALPOWERS[5],
+               PRESIDENTIALPOWERS[6] ];
     } else { // 7, 8, 9 and 10
-      return [ PRESIDENTIALPOWERS[1], PRESIDENTIALPOWERS[3], PRESIDENTIALPOWERS[4], PRESIDENTIALPOWERS[5], PRESIDENTIALPOWERS[6] ];
+      return [ PRESIDENTIALPOWERS[1], PRESIDENTIALPOWERS[3], PRESIDENTIALPOWERS[4],
+               PRESIDENTIALPOWERS[5], PRESIDENTIALPOWERS[6] ];
     }
   },
   powericons: function() {
